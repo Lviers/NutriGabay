@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Food</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1>Update Food</h1>
+        </header>
+        <main>
+            <h2>Edit Food Details</h2>
+            <form action="{{ url_for('update_food', food_id=food['food_id']) }}" method="POST">
+                <div class="form-group">
+                    <label for="food_name">Food Name:</label>
+                    <input type="text" name="food_name" value="{{ food['food_name'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="type">Type:</label>
+                    <input type="text" name="type" value="{{ food['type'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="carbs">Carbs:</label>
+                    <input type="text" name="carbs" value="{{ food['carbs'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="protein">Protein:</label>
+                    <input type="text" name="protein" value="{{ food['protein'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="fats">Fats:</label>
+                    <input type="text" name="fats" value="{{ food['fats'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="calorie">Calories:</label>
+                    <input type="number" name="calorie" value="{{ food['calorie'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="grams">Grams:</label>
+                    <input type="number" name="grams" value="{{ food['grams'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="meal_type">Meal Type:</label>
+                    <input type="text" name="meal_type" value="{{ food['meal_type'] }}" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <input type="text" name="category" value="{{ food['category'] }}" required class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Food</button>
+                <a href="{{ url_for('manage_food') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </main>
+        <footer class="mt-5">
+            <p>&copy; 2024 Your Application Name</p>
+        </footer>
+    </div>
+</body>
+</html>

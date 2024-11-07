@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Management</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="text-center">Food Management</h1>
+
+    <!-- Add Food Button -->
+    <div class="btn-group">
+        <form action="/food/add" method="get">
+            <button type="submit" class="btn btn-success btn-lg">+ Add New Food</button>
+        </form>
+    </div>
+
+    <!-- Food Table -->
+    <h2 class="text-center">Existing Foods</h2>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Food ID</th>
+                <th>Food Name</th>
+                <th>Type</th>
+                <th>Carbs</th>
+                <th>Protein</th>
+                <th>Fats</th>
+                <th>Calories</th>
+                <th>Grams</th>
+                <th>Meal Type</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for food in foods %}
+        <tr>
+            <td>{{ food['food_id'] }}</td>
+            <td>{{ food['food_name'] }}</td>
+            <td>{{ food['type'] }}</td>
+            <td>{{ food['carbs'] }}</td>
+            <td>{{ food['protein'] }}</td>
+            <td>{{ food['fats'] }}</td>
+            <td>{{ food['calorie'] }}</td>
+            <td>{{ food['grams'] }}</td>
+            <td>{{ food['meal_type'] }}</td>
+            <td>{{ food['category'] }}</td>
+            <td>
+                <form action="/food/update/{{ food['food_id'] }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-info btn-sm">Update</button>
+                </form>
+                <form action="/food/delete/{{ food['food_id'] }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Add New Food Button at the Bottom -->
+    <div class="btn-group">
+        <form action="/food/add" method="get">
+            <button type="submit" class="btn btn-success btn-lg">+ Add New Food</button>
+        </form>
+    </div>
+
+</body>
+</html>

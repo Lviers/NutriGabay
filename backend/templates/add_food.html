@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1>Add Food</h1>
+        </header>
+
+        <!-- Form to Add Food -->
+        <form action="/food/add" method="POST">
+            <div class="form-group">
+                <label for="food_name">Food Name:</label>
+                <input type="text" class="form-control" name="food_name" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <input type="text" class="form-control" name="type" required>
+            </div>
+            <div class="form-group">
+                <label for="carbs">Carbs:</label>
+                <input type="text" class="form-control" name="carbs" required>
+            </div>
+            <div class="form-group">
+                <label for="protein">Protein:</label>
+                <input type="text" class="form-control" name="protein" required>
+            </div>
+            <div class="form-group">
+                <label for="fats">Fats:</label>
+                <input type="text" class="form-control" name="fats" required>
+            </div>
+            <div class="form-group">
+                <label for="calorie">Calories:</label>
+                <input type="number" class="form-control" name="calorie" required>
+            </div>
+            <div class="form-group">
+                <label for="grams">Grams:</label>
+                <input type="number" class="form-control" name="grams" required>
+            </div>
+            <div class="form-group">
+                <label for="meal_type">Meal Type:</label>
+                <input type="text" class="form-control" name="meal_type" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" class="form-control" name="category" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Food</button>
+        </form>
+
+        <a href="/food" class="btn btn-secondary mt-3">Back to Food Management</a>
+    </div>
+</body>
+</html>
